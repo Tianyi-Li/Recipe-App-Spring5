@@ -14,7 +14,7 @@
     <name>spring5-recipe-app</name>
     <description>Recipe Application</description>
     <properties>
-        <java.version>15</java.version>
+        <java.version>11</java.version>
     </properties>
     <dependencies>
         <dependency>
@@ -44,6 +44,11 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>bootstrap</artifactId>
+            <version>3.3.7-1</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>

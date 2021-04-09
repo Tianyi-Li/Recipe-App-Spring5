@@ -8,6 +8,7 @@ import guru.springframework.repositories.RecipeRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
@@ -45,6 +46,12 @@ public class RecipeServiceImpl implements RecipeService{
             throw new RuntimeException("Recipe Not Found!");
         }
         return recipeOptional.get();
+    }
+
+    @Override
+    @Transactional //doing a conversion outside the scope. we hit any lazy loaded property
+    public RecipeCommand findCommandById(Long l) {
+        return recipeToRecipeCommand.convert(findById(l));
     }
 
     @Override
